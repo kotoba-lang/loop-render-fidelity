@@ -25,6 +25,17 @@
   let a hundred fabricated characters hide behind a bigger corpus."
   (:require [clojure.string :as str]))
 
+(defn- fmt
+  "A rate to three places, portably.
+
+  `format` is JVM-only and this file is `.cljc` — a claim of portability
+  that a linter checks and a test suite does not, because nothing here runs
+  on ClojureScript yet. Same shape of mistake as a `:require` whose only
+  entry is `:clj`."
+  [x]
+  (let [r (/ (Math/round (* 1000.0 (double x))) 1000.0)]
+    (str r)))
+
 (defn- rate
   "nil when nothing was measured, not 1.0.
 
@@ -70,8 +81,7 @@
                         moved (when (and a b) (if (= dir :up) (- b a) (- a b)))]
                     (when (and moved (> moved tolerance))
                       {:kind :regression :metric k :was b :now a
-                       :message (str label ": " (format "%.3f" b) " → "
-                                     (format "%.3f" a))})))
+                       :message (str label ": " (fmt b) " → " (fmt a))})))
           invented (:oracle/invented current)
           findings
           (cond-> (keep identity

@@ -128,8 +128,7 @@
     (when-not root
       (println "usage: -M:run --root <dir> [--limit 48] [--evidence <dir>]")
       (System/exit 2))
-    (let [{:keys [summary verdict targets] :as out} (run {:root root :limit limit
-                                                          :evidence evidence})]
+    (let [{:keys [verdict] :as out} (run {:root root :limit limit :evidence evidence})]
       (println (gate/render-report out))
       ;; The exit code is the ratchet's, so a shell loop or a pre-commit
       ;; hook can use this without parsing anything.
