@@ -21,7 +21,7 @@
   whole reason it is a local loop."
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [render-fidelity.gate :as gate]
             [render-fidelity.measure :as measure]))
 
@@ -72,7 +72,7 @@
   producers differ."
   [root limit]
   (let [all (->> (file-seq (io/file root))
-                 (filter #(str/ends-with? (str/lower-case (.getName ^java.io.File %)) ".pdf"))
+                 (filter #(str/ends-with? (str/lower (.getName ^java.io.File %)) ".pdf"))
                  (filter has-local-bytes?)
                  (sort-by #(.getPath ^java.io.File %)))
         step (max 1 (quot (count all) (max 1 limit)))]

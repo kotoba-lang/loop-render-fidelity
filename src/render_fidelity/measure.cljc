@@ -28,7 +28,7 @@
   undrawn by reason, pages where the two readers disagree. A score would
   hide which of those moved."
   (:require [adobe.cmap.core :as acmap]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [hanmen.page :as page]
             [hanmen.pdf :as hpdf]
             [pdf.core :as pdf]))
