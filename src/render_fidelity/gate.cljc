@@ -23,7 +23,7 @@
   One exception, and it is the important one: **invented characters are
   compared as a count, and the only acceptable count is zero.** A rate would
   let a hundred fabricated characters hide behind a bigger corpus."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- fmt
   "A rate to three places, portably.
