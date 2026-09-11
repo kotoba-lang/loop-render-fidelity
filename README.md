@@ -96,8 +96,8 @@ now defined as *reading is instant*, which is what the property actually is.
 ## Test
 
 ```sh
-clojure -M:test
-clojure -M:lint
+kbb -M:test
+kbb -M:lint
 ```
 
 9 tests / 19 assertions, over the ratchet — the only part with an opinion.

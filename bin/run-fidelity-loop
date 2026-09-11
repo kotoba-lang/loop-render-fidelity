@@ -9,4 +9,4 @@
 # without parsing anything.
 set -e
 ROOT="${1:?usage: run-fidelity-loop <corpus-dir> [limit] [evidence-dir]}"
-exec clojure -M:run --root "$ROOT" --limit "${2:-48}" --evidence "${3:-evidence}"
+exec kbb -M:run --root "$ROOT" --limit "${2:-48}" --evidence "${3:-evidence}"
