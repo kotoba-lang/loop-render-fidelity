@@ -19,7 +19,7 @@
   `scripts/fleet-ci` runs on tailnet nodes with no local documents at all,
   so this cannot be a fleet gate however much it looks like one. That is the
   whole reason it is a local loop."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]
             [render-fidelity.gate :as gate]
