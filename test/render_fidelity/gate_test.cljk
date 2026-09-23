@@ -1,6 +1,6 @@
 (ns render-fidelity.gate-test
   "The ratchet, which is the only part of this loop with an opinion."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [render-fidelity.gate :as gate]))
 
 (def ^:private base
