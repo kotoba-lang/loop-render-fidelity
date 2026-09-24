@@ -19,7 +19,7 @@
   `scripts/fleet-ci` runs on tailnet nodes with no local documents at all,
   so this cannot be a fleet gate however much it looks like one. That is the
   whole reason it is a local loop."
-  (:require [kotoba.lang.edn :as edn]
+  (:require [kotoba.io :as kio] [kotoba.lang.edn :as edn]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]
             [render-fidelity.gate :as gate]
@@ -79,7 +79,7 @@
     (vec (take limit (take-nth step all)))))
 
 (defn- read-bytes [^java.io.File f]
-  (mapv #(bit-and (int %) 0xff) (java.nio.file.Files/readAllBytes (.toPath f))))
+  (mapv #(bit-and (int %) 0xff) (kio/read-all-bytes f)))
 
 (defn- ledger-path [dir] (io/file dir "evidence.edn"))
 
